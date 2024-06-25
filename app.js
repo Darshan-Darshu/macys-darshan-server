@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
 const productRouter = require("./routes/products");
 const bagRouter = require("./routes/bags");
@@ -13,8 +14,7 @@ const port = process.env.PORT || 5000;
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
-const url =
-  "mongodb+srv://darshan:darshan@macys.hbsdsqd.mongodb.net/macys";
+const url = process.env.MONGODB_URL;
 
 mongoose
   .connect(url)

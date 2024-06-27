@@ -51,3 +51,26 @@ module.exports.createOrUpdateBag = async (req, res) => {
     res.status(500).json({ err: err.message });
   }
 };
+
+module.exports.updateBagQty = async (req, res) => {
+  const user = req.params.user;
+  const { name } = req.body;
+  console.log(user);
+
+  try {
+    const bags = await Bag.findOne({ user });
+    console.log(bags);
+
+    const bag = bags.bag.find(
+      (bag) => bag.productName === name,
+    );
+    console.log(bag.qty);
+
+    bag.qty += Number(req.body.amount);
+    console.log(bag.qty);
+    await bags.save();
+    res.status(200).json("updated Successfully");
+  } catch (err) {
+    res.status(500).json({ err: err.message });
+  }
+};

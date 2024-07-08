@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const productRouter = require("./routes/products");
 const bagRouter = require("./routes/bags");
+const storeRouter = require("./routes/stores");
 
 const app = express();
 app.use(cors());
@@ -23,6 +24,7 @@ mongoose
 
 app.use("/product", productRouter);
 app.use("/bag", bagRouter);
+app.use("/store", storeRouter);
 
 app.listen(port, () =>
   console.log("Server ready on port", port),

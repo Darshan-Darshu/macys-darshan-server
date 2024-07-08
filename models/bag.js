@@ -3,8 +3,13 @@ const mongoose = require("mongoose");
 const bagSchema = mongoose.Schema({
   user: {
     type: String,
-    require: true,
     lowercase: true,
+  },
+  bagId: {
+    type: String,
+  },
+  bagGuid: {
+    type: String,
   },
   bag: [
     {
@@ -12,6 +17,8 @@ const bagSchema = mongoose.Schema({
       price: Number,
       qty: Number,
       imageUrl: String,
+      isUpsStore: Boolean,
+      isStore: Boolean,
     },
   ],
 });

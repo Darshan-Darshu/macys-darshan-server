@@ -17,6 +17,9 @@ const productSchema = mongoose.Schema({
     type: String,
     require: true,
   },
+  isUpsAp: Boolean,
+  isStore: Boolean,
+  webId: String,
 });
 
 const Product = mongoose.model("Product", productSchema);

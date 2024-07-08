@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const productRouter = require("../routes/products");
 const bagRouter = require("../routes/bags");
-const storeRouter = require("./routes/stores");
+const storeRouter = require("../routes/stores");
 
 const app = express();
 

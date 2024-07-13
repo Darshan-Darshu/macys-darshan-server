@@ -35,3 +35,18 @@ module.exports.updateCounter = async (req, res) => {
     res.status.json({ err: err.message });
   }
 };
+
+module.exports.resetCounter = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const counter = await Counter.findById(id);
+
+    counter.count = 0;
+    await counter.save();
+
+    res.status(200).json("reset!!!");
+  } catch (err) {
+    res.status.json({ err: err.message });
+  }
+};
